@@ -1,0 +1,362 @@
+.projects {
+  position: relative;
+  width: 100%;
+  padding: clamp(50px, 8vw, 90px) 0;
+  color: #fff;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  width: min(1200px, 92%);
+  margin: 0 auto clamp(24px, 5vw, 42px);
+  text-align: center;
+}
+
+.sectionKicker {
+  margin: 0 0 14px;
+  font-size: clamp(0.68rem, 1.2vw, 0.75rem);
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--hs-accent, #c46b1f);
+  opacity: 0.95;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  font-size: clamp(2rem, 5.5vw, 5.4rem);
+}
+
+.sectionSub {
+  margin: 2px auto 0;
+  max-width: 70ch;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  font-size: clamp(0.88rem, 1.35vw, 1.05rem);
+}
+
+/* ---------- GSAP FLEX CONTAINER ---------- */
+.projectsGrid {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 28px;
+  will-change: transform;
+}
+
+.projectCard {
+  /* Default Desktop: Displays exactly 2 cards side-by-side */
+  flex: 0 0 calc(50% - 14px);
+  min-width: 0; /* Prevents flex children from bursting out */
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(10, 10, 10, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* hover effects base */
+  transform: translateZ(0);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.projectMedia {
+  position: relative;
+  height: clamp(160px, 18vw, 240px);
+  overflow: hidden;
+}
+
+.projectMedia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  filter: saturate(1.05) contrast(1.02);
+
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+.projectMediaOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.55) 65%,
+    rgba(0, 0, 0, 0.85)
+  );
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+
+.projectBody {
+  padding: clamp(14px, 2vw, 20px);
+}
+
+.projectTitle {
+  margin: 0 0 10px;
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+
+  transition: color 0.25s ease;
+}
+
+.projectDesc {
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, 0.52);
+  line-height: 1.65;
+  font-size: clamp(0.85rem, 1.1vw, 0.95rem);
+  max-width: 72ch;
+
+  transition: color 0.25s ease;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.tag {
+  font-size: clamp(0.7rem, 0.9vw, 0.78rem);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.65);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.projectFooter {
+  display: flex;
+  gap: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: rgba(120, 210, 255, 0.95);
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.projectLink .icon {
+  opacity: 0.9;
+}
+
+.projectLink:hover {
+  text-decoration: underline;
+}
+
+.projectCard:hover,
+.projectCard:focus-within {
+  transform: translateY(-10px);
+  border-color: rgba(196, 107, 31, 0.35);
+  box-shadow:
+    0 26px 90px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(196, 107, 31, 0.18),
+    0 0 38px rgba(196, 107, 31, 0.18);
+}
+
+.projectCard:hover .projectMedia img,
+.projectCard:focus-within .projectMedia img {
+  transform: scale(1.08);
+  filter: saturate(1.15) contrast(1.08);
+}
+
+.projectCard:hover .projectMediaOverlay,
+.projectCard:focus-within .projectMediaOverlay {
+  opacity: 0.85;
+}
+
+.projectCard:hover .projectTitle,
+.projectCard:focus-within .projectTitle {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.projectCard:hover .projectDesc,
+.projectCard:focus-within .projectDesc {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.projectCard:hover .tag,
+.projectCard:focus-within .tag {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.projectCard:hover .projectLink,
+.projectCard:focus-within .projectLink {
+  color: rgba(196, 107, 31, 0.95);
+}
+
+.projectCard:hover .projectLink:hover {
+  transform: translateX(2px);
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+
+/* Large Tablets & Small Laptops (1024px and below) */
+@media (max-width: 1024px) {
+  .projectsGrid {
+    width: 92%;
+    gap: 20px;
+  }
+
+  .projectCard {
+    flex: 0 0 calc(50% - 10px);
+  }
+}
+
+/* Tablets (768px and below): Show 1 full card + peek of the next card */
+@media (max-width: 768px) {
+  .projectsGrid {
+    width: 94%;
+    gap: 18px;
+  }
+
+  .projectCard {
+    flex: 0 0 85%; /* 85% width lets users see part of the next card in GSAP sequence */
+  }
+
+  .sectionTitle {
+    max-width: 16ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Mobile Devices (480px and below) */
+@media (max-width: 480px) {
+  .projectsGrid {
+    width: 95%;
+    gap: 14px;
+  }
+
+  .projectCard {
+    flex: 0 0 90%; /* 90% card width on phones for maximum reading space */
+    border-radius: 14px;
+  }
+
+  .projectBody {
+    padding: 16px;
+  }
+
+  .projectFooter {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    gap: 14px;
+  }
+}
+
+/* Ultra-Small Mobile Devices (360px and below) */
+@media (max-width: 360px) {
+  .projectCard {
+    flex: 0 0 95%;
+  }
+
+  .tag {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  .projectCard,
+  .projectMedia img,
+  .projectMediaOverlay,
+  .tag,
+  .projectLink {
+    transition: none !important;
+  }
+
+  .projectCard:hover,
+  .projectCard:focus-within {
+    transform: none !important;
+  }
+}
+
+/* Horizontal Center Container */
+.btnBar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* Normal Size Modern Dark Button */
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #121214;
+  color: #ffffff;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+  transform: translateZ(0);
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btnIcon {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.25s ease;
+}
+
+/* Modern Hover Effects */
+.exploreBtn:hover {
+  transform: translateY(-2px);
+}
+
+.exploreBtn:hover .btnIcon {
+  transform: translateX(4px);
+}
+
+.exploreBtn:active {
+  transform: translateY(0);
+}
