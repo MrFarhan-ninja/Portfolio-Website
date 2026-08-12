@@ -2,7 +2,7 @@
   position: relative;
   color: #fff;
   overflow: hidden;
-  padding: clamp(56px, 8vw, 90px) 0 clamp(24px, 6vw, 40px);
+  padding: clamp(64px, 8vw, 110px) 0 clamp(28px, 6vw, 44px);
   font-family:
     Inter,
     system-ui,
@@ -16,13 +16,16 @@
     position: absolute;
     inset: -20%;
     pointer-events: none;
-    filter: blur(6px);
+    filter: blur(10px);
     opacity: 0.9;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(78, 112, 255, 0.18), transparent 26%),
+      radial-gradient(circle at 78% 62%, rgba(255, 155, 84, 0.16), transparent 26%);
   }
 
   &__container {
     position: relative;
-    width: min(1200px, 92vw);
+    width: min(1120px, 92vw);
     margin: clamp(18px, 5vw, 50px) auto 0;
 
     display: flex;
@@ -48,14 +51,14 @@
   }
 
   &__titleAccent {
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 155, 84, 0.92);
     font-weight: 800;
   }
 
   &__desc {
     margin: 0 0 clamp(18px, 4vw, 34px);
     max-width: 56ch;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(234, 238, 255, 0.66);
     line-height: 1.7;
     font-size: clamp(0.95rem, 1.4vw, 1rem);
   }
@@ -68,20 +71,28 @@
   }
 
   &__email {
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     font-size: clamp(1.05rem, 3.2vw, 1.35rem);
     width: fit-content;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-    padding-bottom: 6px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 12px 16px;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      background 0.2s ease;
 
     &:hover {
-      border-bottom-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-2px);
+      border-color: rgba(255, 155, 84, 0.28);
+      background: rgba(255, 255, 255, 0.06);
     }
   }
 
   &__phone {
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(205, 214, 255, 0.6);
     font-size: 0.9rem;
     letter-spacing: 0.02em;
   }
@@ -90,12 +101,16 @@
     flex: 0 0 420px;
     max-width: 420px;
     width: 100%;
-    border-radius: 18px;
-    padding: clamp(16px, 4vw, 22px);
-    background: rgba(20, 20, 20, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    padding: clamp(18px, 4vw, 24px);
+    background:
+      linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+      rgba(9, 14, 30, 0.76);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 24px 90px rgba(2, 6, 18, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
   }
 
   &__form {
@@ -112,26 +127,32 @@
     &__label {
       font-size: 11px;
       letter-spacing: 0.22em;
-      color: rgba(255, 255, 255, 0.35);
+      color: rgba(205, 214, 255, 0.5);
     }
 
     &__input,
     &__textarea {
       width: 100%;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(8, 8, 8, 0.55);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.04);
       color: rgba(255, 255, 255, 0.88);
-      padding: 12px 12px;
+      padding: 14px 14px;
       outline: none;
       font-size: 14px;
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
 
       &::placeholder {
         color: rgba(255, 255, 255, 0.32);
       }
 
       &:focus {
-        border-color: rgba(255, 255, 255, 0.22);
+        border-color: rgba(255, 155, 84, 0.3);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 0 0 4px rgba(255, 155, 84, 0.08);
       }
     }
 
@@ -146,10 +167,10 @@
     margin-top: 6px;
     width: 100%;
     height: 52px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.95);
-    color: #0b0b0b;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 178, 119, 0.26);
+    background: linear-gradient(135deg, #ff9b54, #ffb77a);
+    color: #12131b;
     font-weight: 700;
     letter-spacing: 0.12em;
     font-size: 12px;
@@ -159,8 +180,8 @@
       opacity 0.15s ease;
 
     &:hover {
-      opacity: 0.92;
-      transform: translateY(-1px);
+      opacity: 0.96;
+      transform: translateY(-2px);
     }
 
     &:active {
@@ -170,7 +191,7 @@
 
   &__footer {
     position: relative;
-    width: min(1200px, 92vw);
+    width: min(1120px, 92vw);
     margin: 0 auto;
     padding-top: 22px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -181,7 +202,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(205, 214, 255, 0.42);
     font-size: 12px;
   }
 
@@ -190,20 +211,20 @@
     gap: 18px;
 
     a {
-      color: rgba(255, 255, 255, 0.35);
+      color: rgba(205, 214, 255, 0.45);
       text-decoration: none;
 
       &:hover {
-        color: rgba(255, 255, 255, 0.7);
+        color: rgba(255, 255, 255, 0.82);
       }
     }
   }
 }
 
 .contact-header {
-  width: min(92vw, 1100px);
+  width: min(1120px, 92vw);
   margin: 0 auto;
-  padding-top: clamp(12px, 3vw, 30px);
+  padding: clamp(22px, 4vw, 34px);
 
   display: flex;
   align-items: center;
@@ -213,6 +234,14 @@
   gap: clamp(12px, 2.5vw, 22px);
   font-family: "Inter", sans-serif;
   text-align: center;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(140deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+    rgba(9, 14, 30, 0.68);
+  box-shadow:
+    0 24px 90px rgba(2, 6, 18, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   .contact-sub-heading {
     margin: 0;
@@ -237,7 +266,7 @@
   .contact-description {
     margin: 0;
     max-width: 62ch;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(234, 238, 255, 0.66);
     font-size: clamp(0.95rem, 1.6vw, 1rem);
     line-height: 1.7;
     padding: 0 clamp(10px, 3vw, 0px);
@@ -277,3 +306,18 @@
     font-size: 1.05rem;
   }
 }
+
+/* Studio dossier UI */
+.contact { color: var(--ink); }
+.contact__bg { background: linear-gradient(135deg, rgba(81, 109, 213, .16), transparent 42%); filter: none; }
+.contact-header { align-items: flex-start; padding: 0 0 24px; border-radius: 0; border: 0; border-bottom: 1px solid rgba(245, 241, 232, .35); background: transparent; box-shadow: none; text-align: left; }
+.contact-header .contact-sub-heading { font-family: "DM Mono", monospace; color: var(--cobalt); }
+.contact-header h2, .contact__title { font-family: "Instrument Serif", serif; font-weight: 400; }
+.contact-header .contact-description, .contact__desc { color: var(--muted); }
+.contact__titleAccent { color: var(--cobalt); }
+.contact__email { border-radius: 0; border-color: rgba(245, 241, 232, .28); background: transparent; color: var(--ink); }
+.contact__card { border-radius: 0; border-color: rgba(245, 241, 232, .25); background: #171d3c; box-shadow: 10px 10px 0 rgba(144, 169, 255, .18); backdrop-filter: none; }
+.contact .field__input, .contact .field__textarea { border-radius: 0; border-color: rgba(245, 241, 232, .2); background: rgba(245, 241, 232, .05); }
+.contact .field__input:focus, .contact .field__textarea:focus { border-color: var(--cobalt); box-shadow: 4px 4px 0 rgba(144, 169, 255, .18); }
+.contact__btn { border-radius: 0; border-color: var(--cobalt); background: var(--cobalt); color: #10142b; }
+.contact__footer { border-color: rgba(245, 241, 232, .2); }

@@ -1,5 +1,5 @@
 import { ScrollSmoother, ScrollTrigger } from 'gsap/all'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import WarpSpeed from "./components/Warp/WarpSpeed"
 import Cursor from './ui/cursor/Cursor'
@@ -10,9 +10,11 @@ import WhoAmi from './components/WhoAmi/WhoAmi'
 import TechStack from './components/TechStack/TechStack'
 import Contact from './components/contact/Contact'
 import Experience from './components/Experience/Experience'
+import Loader from './components/Loader/Loader'
 
 
 const App = () => {
+  const [showLoader, setShowLoader] = useState(true)
 
   useEffect(() => {
     ScrollSmoother.create({
@@ -22,9 +24,13 @@ const App = () => {
     })
 
     ScrollTrigger.refresh();
+
+    const dismissLoader = window.setTimeout(() => setShowLoader(false), 1600)
+    return () => window.clearTimeout(dismissLoader)
   }, [])
   return (
     <>
+      {showLoader && <Loader />}
       <WarpSpeed />
       <Cursor />
       <div id='smooth-wrapper'>

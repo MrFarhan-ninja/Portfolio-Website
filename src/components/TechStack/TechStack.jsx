@@ -85,7 +85,7 @@ const TECH_ICONS = {
 
     Python: pythonIcon,
     // Django: djangoIcon,
-    Java: javaIcon,
+    //Java: javaIcon,
     // "Spring Boot": springIcon,
     // "Spring MVC": springIcon,
     // "Spring Security": springIcon,
